@@ -23,9 +23,13 @@ if (app.Environment.IsDevelopment())
     app.UseCors("DevCors");
 }
 
-app.UseHttpsRedirection();
+// Deixei comentado porque a API está rodando em HTTP neste teste,
+// pra não depender de certificado HTTPS local.
+// app.UseHttpsRedirection();       
 
 app.MapControllers();
+
+app.MapGet("/", () => Results.Ok("Api online"));
 
 app.Run();
 
