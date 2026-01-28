@@ -6,18 +6,21 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-	<!--Aqui estou utilizando o EF Core e o SQLite para haver persistência no arquivo .db-->
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />"
-	
-	<!--Aqui utilizei o EF Core Design para poder gerar/aplicar Migrations-->
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
-		<PrivateAssets>all</PrivateAssets>
-		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
-	  
-	<!--Aqui é o pacote Swashbuckle para poder implementar as funções Swagger e gerar a documentação-->
-	<PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.1" />
 
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+	</ItemGroup>
+	
+	<!--Aqui estou utilizando o EF Core e o SQLite para haver persistência no arquivo .db-->
+	<!--Aqui é o pacote Swashbuckle para poder implementar as funções Swagger e gerar a documentação-->
+	<!--Aqui utilizei o EF Core Design para habilitar Migrations-->
+	<!--OBSERVAÇÃO: Todos os comentários acima estão se referindo aos itens presentes no ItemGroup,
+					estou colocando eles fora do bloco pois estava tendo erro ao aplicar "dotnet restore"-->
+	
 </Project>
