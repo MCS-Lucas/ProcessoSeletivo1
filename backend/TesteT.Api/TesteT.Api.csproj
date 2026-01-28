@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+	<!--Aqui estou utilizando o EF Core e o SQLite para haver persistência no arquivo .db-->
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />"
+	
+	<!--Aqui utilizei o EF Core Design para poder gerar/aplicar Migrations-->
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+		<PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  
+	<!--Aqui é o pacote Swashbuckle para poder implementar as funções Swagger e gerar a documentação-->
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
   </ItemGroup>
 
 </Project>
