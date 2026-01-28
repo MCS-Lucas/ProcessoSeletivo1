@@ -1,8 +1,7 @@
 # ProcessoSeletivo1
 
 Repositório do teste técnico: Web API (.NET) + Frontend (React + TypeScript).  
-Persistência via SQLite (dados permanecem após reiniciar).
-
+Persistência via SQLite
 ## Requisitos
 
 - .NET SDK 10.x
@@ -14,10 +13,10 @@ Execute a partir da **raiz do repositório**.
 
 ### bash
 
-dotnet restore
-dotnet tool restore
-dotnet build
-dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
+- dotnet restore
+- dotnet tool restore
+- dotnet build
+- dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
 
 ## Banco (SQLite + EF Core Migrations)
 
