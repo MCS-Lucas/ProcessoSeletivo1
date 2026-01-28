@@ -13,10 +13,10 @@ Execute a partir da **raiz do repositório**.
 
 ### bash
 
-dotnet restore
-dotnet tool restore
-dotnet build
-dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
+- dotnet restore
+- dotnet tool restore
+- dotnet build
+- dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
 
 ## Banco (SQLite + EF Core Migrations)
 
