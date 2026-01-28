@@ -1,8 +1,7 @@
 # ProcessoSeletivo1
 
 Repositório do teste técnico: Web API (.NET) + Frontend (React + TypeScript).  
-Persistência via SQLite (dados permanecem após reiniciar).
-
+Persistência via SQLite
 ## Requisitos
 
 - .NET SDK 10.x
