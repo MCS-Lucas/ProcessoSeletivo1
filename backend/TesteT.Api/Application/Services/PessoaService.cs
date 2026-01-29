@@ -11,7 +11,7 @@ namespace TesteT.Api.Application.Services
         {
             _db = db;
         }
-        public async Task<Pessoa> CreateAsync(string nome, int idade, CancellationToken ct)
+        public async Task<Pessoa> CriarPessoaAsync(string nome, int idade, CancellationToken ct)
         {
             nome = (nome ?? string.Empty).Trim();
             if (string.IsNullOrEmpty(nome))
@@ -40,7 +40,7 @@ namespace TesteT.Api.Application.Services
             return await _db.Pessoas.AsNoTracking().OrderBy(p => p.PessoaId).ToListAsync(ct);
         }
 
-        public async Task<bool> DeleteAsync(int pessoaId, CancellationToken ct)
+        public async Task<bool> DeletarPessoaAsync(int pessoaId, CancellationToken ct)
         {
             var pessoa = await _db.Pessoas.FirstOrDefaultAsync(p => p.PessoaId == pessoaId, ct);
             if (pessoa == null)
