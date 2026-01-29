@@ -33,7 +33,7 @@ dotnet ef database update --project backend/TesteT.Api/TesteT.Api.csproj --start
 cd frontend
 npm install
 
-### PowerShell (Importante, clonar a env.exmple para .env)
+### PowerShell (Importante, clonar a env.example para .env)
 
 Copy-Item .\.env.example .\.env
 
