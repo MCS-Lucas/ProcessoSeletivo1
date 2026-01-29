@@ -49,7 +49,7 @@ namespace TesteT.Api.Application.Services
                 return false;
             }
 
-            //Verifica se a categoria tem transacoes relacionadas antes de deletar 
+            //Verifica se a categoria tem transações relacionadas antes de deletar 
             var usando = await _db.Transacoes.AsNoTracking().AnyAsync(t => t.CategoriaId == categoriaId, ct);
 
             if (usando)

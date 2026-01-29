@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using TesteT.Api.Application.Interfaces;
-using TesteT.Api.Controllers.Dtos;
 using TesteT.Api.Controllers.Dtos.Pessoa;
 
 namespace TesteT.Api.Controllers
@@ -18,7 +17,7 @@ namespace TesteT.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<PessoaResponse>> Create([FromBody] CreatePessoaRequest request, CancellationToken ct)
         {
-            var pessoa = await _pessoaService.CreateAsync(request.Nome, request.Idade, ct);
+            var pessoa = await _pessoaService.CriarPessoaAsync(request.Nome, request.Idade, ct);
 
             var response = new PessoaResponse
             {
@@ -47,8 +46,8 @@ namespace TesteT.Api.Controllers
         [HttpDelete("{pessoaId:int}")]
         public async Task<IActionResult> Delete([FromRoute] int pessoaId, CancellationToken ct)
         {
-            var deleted = await _pessoaService.DeleteAsync(pessoaId, ct);
-            if (!deleted)
+            var deletar = await _pessoaService.DeletarPessoaAsync(pessoaId, ct);
+            if (!deletar)
             {
                 return NotFound();
             }
