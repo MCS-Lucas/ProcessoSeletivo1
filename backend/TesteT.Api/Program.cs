@@ -24,7 +24,7 @@ builder.Services.AddInfra(builder.Configuration);
 builder.Services.AddScoped<IPessoaService, PessoaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
-//builder.Services.AddScoped<IRelatorioService, RelatorioService>();
+builder.Services.AddScoped<IRelatorioService, RelatorioService>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
