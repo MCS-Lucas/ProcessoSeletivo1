@@ -23,7 +23,7 @@ builder.Services.AddInfra(builder.Configuration);
 // Aqui estão os métodos que irão dizer ao DI qual classe implementar quando uma interface for requisitada
 builder.Services.AddScoped<IPessoaService, PessoaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
-//builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 //builder.Services.AddScoped<IRelatorioService, RelatorioService>();
 var app = builder.Build();
 
