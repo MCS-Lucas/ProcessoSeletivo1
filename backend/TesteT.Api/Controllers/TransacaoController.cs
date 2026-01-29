@@ -20,46 +20,31 @@ namespace TesteT.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<TransacaoResponse>> Create([FromBody] CreateTransacaoRequest request, CancellationToken ct)
         {
-            try
-            {
-                var transacao = await _transacaoService.CriarTransacaoAsync(
-                    request.Descricao,
-                    request.Valor,
-                    request.Tipo,
-                    request.PessoaId,
-                    request.CategoriaId,
-                    ct);
+            var transacao = await _transacaoService.CriarTransacaoAsync(
+            request.Descricao,
+            request.Valor,
+            request.Tipo,
+            request.PessoaId,
+            request.CategoriaId,
+            ct);
 
-                var pessoa = await _db.Pessoas.FindAsync(new object[] { request.PessoaId }, ct);
+            var pessoa = await _db.Pessoas.FindAsync(new object[] { request.PessoaId }, ct);
 
-                var categoria = await _db.Categorias.FindAsync(new object[] { request.CategoriaId }, ct);
+            var categoria = await _db.Categorias.FindAsync(new object[] { request.CategoriaId }, ct);
 
-                var response = new TransacaoResponse
-                {
-                    TransacaoId = transacao.TransacaoId,
-                    Descricao = transacao.Descricao,
-                    Tipo = transacao.Tipo,
-                    Valor = transacao.Valor,
-                    PessoaId = transacao.PessoaId,
-                    PessoaNome = pessoa?.Nome ?? string.Empty,
-                    CategoriaId = transacao.CategoriaId,
-                    CategoriaDescricao = categoria?.Descricao ?? string.Empty
-                };
+            var response = new TransacaoResponse
+            {
+                TransacaoId = transacao.TransacaoId,
+                Descricao = transacao.Descricao,
+                Tipo = transacao.Tipo,
+                Valor = transacao.Valor,
+                PessoaId = transacao.PessoaId,
+                PessoaNome = pessoa?.Nome ?? string.Empty,
+                CategoriaId = transacao.CategoriaId,
+                CategoriaDescricao = categoria?.Descricao ?? string.Empty
+            };
 
-                return CreatedAtAction(nameof(GetAll), new { }, response);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { Message = ex.Message });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { Message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return UnprocessableEntity(new { Message = ex.Message });
-            }
+            return CreatedAtAction(nameof(GetAll), new { }, response);
         }
 
         [HttpGet]

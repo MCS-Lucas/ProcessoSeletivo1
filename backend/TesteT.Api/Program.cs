@@ -1,6 +1,7 @@
 using TesteT.Api.Infra.DependencyInjection;
 using TesteT.Api.Application.Interfaces;
 using TesteT.Api.Application.Services;
+using TesteT.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,10 @@ builder.Services.AddScoped<IPessoaService, PessoaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 builder.Services.AddScoped<IRelatorioService, RelatorioService>();
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
