@@ -1,7 +1,8 @@
 # ProcessoSeletivo1
 
 Repositório do teste técnico: Web API (.NET) + Frontend (React + TypeScript).  
-Persistência via SQLite
+Persistência via SQLite.
+
 ## Requisitos
 
 - .NET SDK 10.x
@@ -11,16 +12,17 @@ Persistência via SQLite
 
 Execute a partir da **raiz do repositório**.
 
-### bash
-
-- dotnet restore
-- dotnet tool restore
-- dotnet build
-- dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
+```bash
+dotnet restore
+dotnet tool restore
+dotnet build
+dotnet run --project backend/TesteT.Api/TesteT.Api.csproj
 
 ## Banco (SQLite + EF Core Migrations)
 
 Rode após 'dotnet tool restore'.
+
+Se a Migration ja existir pode pular direto para database update
 
 dotnet ef migrations add InitialCreate --project backend/TesteT.Api/TesteT.Api.csproj --startup-project backend/TesteT.Api/TesteT.Api.csproj -o Infra/Persistence/Migrations
 
@@ -31,8 +33,9 @@ dotnet ef database update --project backend/TesteT.Api/TesteT.Api.csproj --start
 cd frontend
 npm install
 
-### PowerShell
+### PowerShell (Importante, clonar a env.exmple para .env)
 
 Copy-Item .\.env.example .\.env
 
 npm run dev
+```
