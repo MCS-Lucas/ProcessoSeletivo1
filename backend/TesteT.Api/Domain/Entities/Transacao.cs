@@ -8,9 +8,9 @@ namespace TesteT.Api.Domain.Entities
         public string Descricao { get; set; } = string.Empty;
         public decimal Valor { get; set; } //Usei decimal por ser valores monetários e o float/double podem gerar problemas
         public TipoTransacao Tipo { get; set; } //Decidir se é receita ou despesa
-        public int PessoaId { get; set; } //FK para Pessoa
+        public int PessoaId { get; set; }
         public Pessoa Pessoa { get; set; } = null!;
-        public int CategoriaId { get; set; }//FK para Categoria
+        public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; } = null!;
     }
 }
