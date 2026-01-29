@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const apiBaseUrl = import.meta.env.VITE_API_URL
   return (
     <>
       <div>
@@ -21,6 +21,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <p>API base: {apiBaseUrl ?? 'não definido'}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
