@@ -40,27 +40,5 @@ namespace TesteT.Api.Application.Services
         {
             return await _db.Categorias.AsNoTracking().OrderBy(c => c.CategoriaId).ToListAsync(ct);
         }
-
-        public async Task<bool> DeletarCategoriaAsync(int categoriaId, CancellationToken ct)
-        {
-            var categoria = await _db.Categorias.FirstOrDefaultAsync(c => c.CategoriaId == categoriaId, ct);
-            if (categoria == null)
-            {
-                return false;
-            }
-
-            //Verifica se a categoria tem transações relacionadas antes de deletar 
-            var usando = await _db.Transacoes.AsNoTracking().AnyAsync(t => t.CategoriaId == categoriaId, ct);
-
-            if (usando)
-            {
-                throw new InvalidOperationException("Não é possível deletar a categoria. Existem transações relacionadas a ela.");
-            }
-
-            _db.Categorias.Remove(categoria);
-            await _db.SaveChangesAsync(ct);
-
-            return true;
-        }
     }
 }

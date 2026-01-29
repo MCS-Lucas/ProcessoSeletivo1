@@ -42,23 +42,5 @@ namespace TesteT.Api.Controllers
 
             return Ok(response);
         }
-
-        [HttpDelete("{categoriaId:int}")]
-        public async Task<IActionResult> DeletarCategoria(int categoriaId, CancellationToken ct)
-        {
-            try
-            {
-                var deletar = await _categoriaService.DeletarCategoriaAsync(categoriaId, ct);
-                if (!deletar)
-                {
-                    return NotFound();
-                }
-                return NoContent();
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
     }
 }

@@ -7,6 +7,5 @@ namespace TesteT.Api.Application.Interfaces
     {
         Task<Categoria> CriarCategoriaAsync(string descricao, FinalidadeCategoria finalidade, CancellationToken ct);
         Task<IReadOnlyList<Categoria>> GetAllAsync(CancellationToken ct);
-        Task<bool> DeletarCategoriaAsync(int categoriaId, CancellationToken ct);
     }
 }
