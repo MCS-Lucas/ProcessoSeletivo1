@@ -9,6 +9,6 @@ namespace TesteT.Api.Application.Interfaces
         DbSet<Categoria> Categorias { get; }
         DbSet<Transacao> Transacoes { get; }
 
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

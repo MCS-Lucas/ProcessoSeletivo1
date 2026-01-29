@@ -56,13 +56,12 @@ namespace TesteT.Api.Infra.Persistence
                 entity.Property(t => t.Descricao).IsRequired().HasMaxLength(200);
                 entity.Property(t => t.Valor).IsRequired().HasConversion(decimalConverter).HasColumnType("TEXT");
                 entity.Property(t => t.Tipo).IsRequired();
+                //O Cascade ta sendo utilizado para que ao deletar uma pessoa, todas as transações associadas a ela também sejam deletadas.
                 entity.HasOne(t => t.Pessoa).WithMany(p => p.Transacoes).HasForeignKey(t => t.PessoaId).OnDelete(DeleteBehavior.Cascade);
+                //O Restrict ta sendo utilizado para que uma categoria não possa ser deletada se houver transações associadas a ela.
                 entity.HasOne(t => t.Categoria).WithMany().HasForeignKey(t => t.CategoriaId).OnDelete(DeleteBehavior.Restrict);
                 entity.HasIndex(t => t.PessoaId);
                 entity.HasIndex(t => t.CategoriaId);
-
-                //O Cascade ta sendo utilizado para que ao deletar uma pessoa, todas as transações associadas a ela também sejam deletadas.
-                //O Restrict ta sendo utilizado para que uma categoria não possa ser deletada se houver transações associadas a ela.
 
             });
         }

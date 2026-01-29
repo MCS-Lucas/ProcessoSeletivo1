@@ -12,7 +12,7 @@ namespace TesteT.Api.Infra.DependencyInjection
 
             if(string.IsNullOrEmpty(connectionString))
             {
-                throw new InvalidOperationException("Connection string 'Default' not found.");
+                throw new InvalidOperationException("Conexão 'Default' não encontrada.");
             }
 
             services.AddDbContext<AppDbContext>(options => 
