@@ -1,12 +1,12 @@
-import type { Finalidade } from "./enums";
+import type { FinalidadeCategoria } from "./enums";
 
-export type Categoria = {
-    id: number;
+export type CreateCategoriaRequest = {
     descricao: string;
-    finalidade: Finalidade;
+    finalidade: FinalidadeCategoria;
 };
 
-export type CategoriaCreateDTO = {
+export type CategoriaResponse = {
+    categoriaId: number;
     descricao: string;
-    finalidade: Finalidade;
+    finalidade: FinalidadeCategoria;
 };

@@ -1,10 +1,10 @@
-export type Pessoa = {
-    id: number;
+export type CreatePessoaRequest = {
     nome: string;
     idade: number;
 };
 
-export type PessoaCreateDTO = {
+export type PessoaResponse = {
+    pessoaId: number;
     nome: string;
     idade: number;
 };

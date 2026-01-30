@@ -1,19 +1,22 @@
 import type { TipoTransacao } from "./enums";
 
-export type Transacao = {
-    id: number;
+export type CreateTransacaoRequest = {
     descricao: string;
     valor: number;
     tipo: TipoTransacao;
-
-    pessoaId: number;
     categoriaId: number;
+    pessoaId: number;
 };
 
-export type TransacaoCreateDTO = {
+export type TransacaoResponse = {
+    transacaoId: number;
     descricao: string;
     valor: number;
     tipo: TipoTransacao;
+
     pessoaId: number;
+    pessoaNome: string;
+
     categoriaId: number;
+    categoriaDescricao: string;
 };
